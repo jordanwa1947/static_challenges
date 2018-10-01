@@ -1,10 +1,9 @@
 require 'rack'
 
-class Challenge1
+class ChallengeOne
   def self.call(env)
     case env["PATH_INFO"]
     when '/' then index
-    when '/main.css' then css
     else
       error
     end
@@ -17,5 +16,4 @@ class Challenge1
   def self.error
     ['404', {'Content-Type' => 'text/html'}, [File.read('./web_page/views/error.html')]]
   end
-
 end
